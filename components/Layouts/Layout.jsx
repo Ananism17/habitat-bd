@@ -21,7 +21,7 @@ import FooterComponent from "../GlobalComponents/FooterComponent";
 
 const Layout = ({ children, token }) => {
   const [menuList, setMenuList] = useState([]);
-  const [loader, setLoader] = useState(true);
+  const [loader, setLoader] = useState(false);
 
   //menu-list
   useEffect(() => {
