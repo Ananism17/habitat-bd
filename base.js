@@ -1,1 +1,1 @@
-export const BASE_URL = "https://https://habitat-admin.vercel.app/public/"
+export const BASE_URL = "https://habitat-admin.vercel.app/public/"
