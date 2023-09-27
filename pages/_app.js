@@ -47,6 +47,13 @@ export default function App({ Component, pageProps }) {
     //   </PersistGate>
     // </Provider>
 
-    <Component {...pageProps} />
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <AdminLayout>
+          <ToastContainer />
+          <Component {...pageProps} />
+        </AdminLayout>
+      </PersistGate>
+    </Provider>
   );
 }
