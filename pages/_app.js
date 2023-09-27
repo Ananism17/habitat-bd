@@ -27,24 +27,26 @@ export default function App({ Component, pageProps }) {
   const isAdminPath = currentPath.startsWith("/admin");
 
   return (
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        {isAdminPath ? (
-          <>
-            <AdminLayout>
-              <ToastContainer />
-              <Component {...pageProps} />
-            </AdminLayout>
-          </>
-        ) : (
-          <>
-            <Layout>
-              <ToastContainer />
-              <Component {...pageProps} />
-            </Layout>
-          </>
-        )}
-      </PersistGate>
-    </Provider>
+    // <Provider store={store}>
+    //   <PersistGate loading={null} persistor={persistor}>
+    //     {isAdminPath ? (
+    //       <>
+    //         <AdminLayout>
+    //           <ToastContainer />
+    //           <Component {...pageProps} />
+    //         </AdminLayout>
+    //       </>
+    //     ) : (
+    //       <>
+    //         <Layout>
+    //           <ToastContainer />
+    //           <Component {...pageProps} />
+    //         </Layout>
+    //       </>
+    //     )}
+    //   </PersistGate>
+    // </Provider>
+
+    <Component {...pageProps} />
   );
 }

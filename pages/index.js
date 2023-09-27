@@ -10,13 +10,14 @@ import WorkComponent from "../components/HomeComponents/WorkComponent";
 const Home = () => {
   return (
     <>
-      <SliderComponent />
+      <h1>Hi</h1>
+      {/* <SliderComponent />
       <WorkComponent />
       <ImpactComponent />
       <StoryComponent />
       <DonationComponent />
       <VolunteerComponent />
-      <NewsComponent />
+      <NewsComponent /> */}
       {/* <InstagramComponent /> */}
     </>
   );
