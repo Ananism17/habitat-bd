@@ -1,0 +1,598 @@
+/* ================================================ */
+/* ================================================ */
+/* ================= PUBLIC PAGES ================== */
+/* ================================================ */
+/* ================================================ */
+
+/* Menu-pages */
+
+.content-holder {
+  min-height: 500px;
+}
+.header {
+  background-color: #28b4d3; /* Use rgba to set the background color with transparency */
+  color: #fff; /* Black text color */
+  padding: 20px; /* Add padding as needed */
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.path-header {
+  background-color: #aeb0b1; /* Use rgba to set the background color with transparency */
+  color: #fff; /* Black text color */
+  padding: 8px 0px 8px 20px; /* Add padding as needed */
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+/* Buttons */
+
+.floating-button-container {
+  position: fixed;
+  bottom: 20px; /* Adjust the distance from the bottom as needed */
+  right: 20px; /* Adjust the distance from the right as needed */
+  z-index: 999; /* Adjust the z-index to ensure it's above other content */
+}
+
+.button-donate {
+  background-color: lightgreen;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.button-donate:hover {
+  background-color: purple;
+  color: white;
+}
+
+.button-discover {
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.button-discover:hover {
+  background-color: #28b4d3;
+  border: 2px solid #28b4d3;
+  color: white;
+}
+
+.button-donate-now {
+  background-color: white;
+  color: black;
+  border: 2px solid white;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.button-donate-now:hover {
+  background-color: #28b4d3;
+  border: 2px solid white;
+  color: white;
+}
+
+.button-website {
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.button-website:hover {
+  background-color: #28b4d3;
+  border: none;
+  color: white;
+}
+
+/* Navbar  */
+
+.navbar-custom {
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 8px;
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.navbar-nav .nav-item .dropdown-menu {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  padding: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: -10px;
+  width: auto;
+  white-space: nowrap;
+}
+
+.navbar-nav .nav-item .dropdown-item {
+  color: #343a40;
+  transition: color 0.3s;
+}
+
+.navbar-nav .nav-item .dropdown-item:hover {
+  color: #007bff;
+}
+
+.navbar-nav .nav-item .dropdown-divider {
+  border-color: #dee2e6;
+}
+
+.navbar-nav-item {
+  /* margin-top: 8px; */
+  color: #595959;
+  transition: color 0.3s;
+  text-decoration: none;
+}
+
+.navbar-nav-item:hover {
+  color: black;
+}
+
+.navbar-nav-item-top {
+  color: #595959;
+  transition: color 0.3s;
+  text-decoration: none;
+}
+
+.navbar-nav-item-top:hover {
+  color: black;
+}
+
+@media (min-width: 992px) {
+  .navbar-nav-item {
+    margin-top: 33px;
+    margin-left: 8px;
+  }
+
+  .navbar-nav-item-top {
+    margin-top: 32px !important;
+  }
+}
+
+/* Footer */
+
+.footer {
+  background: #545454;
+  /* min-width: 100vh; */
+  min-height: 100px;
+  color: #fff;
+}
+
+.word-divider {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 2em; /* Adjust this height to your preference */
+  background-color: white;
+  vertical-align: middle;
+  margin: 0 5px; /* Adjust margin to control spacing */
+}
+
+/* Home/Slider */
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(0, 0, 0, 0.12);
+  border-radius: 50px;
+  padding: 5px;
+}
+.carousel-image-container {
+  height: 600px; /* Set a fixed height for your images */
+  overflow: hidden; /* Hide any overflowing content */
+}
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Crop the image while maintaining aspect ratio */
+}
+
+/* Home/Impact */
+
+.element-with-green-line {
+  position: relative;
+  border-top: 4px solid #c4d600;
+}
+
+/* Home/Story */
+
+.truncate-lines {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* Number of lines to show */
+  overflow: hidden;
+}
+.story-image {
+  width: 100%; /* Set a fixed width for uniform sizing */
+  height: 220px; /* Set a fixed height for uniform sizing */
+  object-fit: cover; /* Maintain aspect ratio and crop if needed */
+  transition: transform 0.2s ease; /* Add a smooth transition */
+  border-radius: 5px 5px 0px  0px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+.custom-story-card {
+  transition: transform 0.2s; 
+}
+.custom-story-card:hover {
+  transform: scale(1.05); 
+}
+
+
+/* Home/Volunteer */
+
+.card-image-container {
+  position: relative;
+  /* overflow: hidden; */
+}
+
+.card-image {
+  width: 100%;
+  height: auto;
+}
+
+.card-title-overlay {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 40px);
+  padding: 10px;
+  background-color: #c4d600;
+  color: black;
+  font-size: 16px;
+  line-height: 1.2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.card-title-overlay:hover {
+  background-color: #28b4d3;
+}
+
+/* Gallery/PhotoGrid */
+
+.card-container {
+  width: 300px;
+  height: 170px;
+  position: relative;
+  margin: 10px 0;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.card-description {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 10px;
+  transition: opacity 0.3s;
+  opacity: 0;
+}
+
+.card-container:hover .card-description {
+  opacity: 1;
+}
+
+/* Gallery/VideoGrid */
+
+.video-card-container {
+  width: 100%;
+  margin: 10px 0;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* Gallery/Album */
+.image-container {
+  gap: 10px; /* Adjust the gap between images as needed */
+  overflow: hidden; /* Hide the overflow */
+}
+
+.image-container:hover .image {
+  transform: scale(1.05); /* Scale up the image on hover */
+}
+
+.image {
+  width: 220px; /* Set a fixed width for uniform sizing */
+  height: 220px; /* Set a fixed height for uniform sizing */
+  object-fit: cover; /* Maintain aspect ratio and crop if needed */
+  transition: transform 0.2s ease; /* Add a smooth transition */
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.glass-effect {
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 300px;
+  margin: 0 auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.icon-construction {
+  font-size: 48px;
+  color: #000;
+}
+
+.header2 {
+  color: #000;
+  font-size: 24px;
+  margin-top: 10px;
+}
+
+.glass-button {
+  border-radius: 50%;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.4
+  ); /* Adjust the alpha value (0.1 for 90% transparency) */
+  border: none;
+  color: #fff; /* Text color */
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.glass-button:hover {
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.8
+  ); /* Adjust the alpha value (0.2 for 80% transparency) */
+  color: #fff; /* Change to the desired text color on hover */
+}
+
+.glass-button:focus {
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.2
+  ); /* Adjust the alpha value when selected */
+  color: #fff; /* Change to the desired text color when selected */
+}
+
+/* Stories */
+
+.custom-card {
+  position: relative;
+  height: 300px; /* Set a fixed height for all cards */
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 2px solid white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.custom-card .card-img {
+  object-fit: cover; /* Crop the image if needed to fit the card's dimensions */
+  height: 100%; /* Ensure the image covers the full card height */
+  width: 100%; /* Ensure the image covers the full card width */
+  transition: filter 0.3s ease; /* Add a smooth transition effect to the filter property */
+}
+
+.custom-card:hover .card-img {
+  filter: blur(4px);
+}
+
+.card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.custom-card:hover .card-overlay {
+  opacity: 1;
+}
+
+/* News */
+.horizontal-card {
+  display: flex;
+  flex-direction: row;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  overflow: hidden;
+}
+
+.horizontal-card .horizontal-card-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Hide any overflow */
+}
+
+.horizontal-card .horizontal-card-image img {
+  width: 100%; /* Set the width to 100% to take up the entire horizontal space */
+  height: auto; /* Let the height adjust to maintain the aspect ratio */
+}
+
+.horizontal-card .horizontal-card-content {
+  flex: 1;
+  padding: 16px; /* Adjust as needed */
+}
+
+
+
+
+
+
+
+
+    
+/* ================================================ */
+/* ================================================ */
+/* ================= ADMIN PAGES ================== */
+/* ================================================ */
+/* ================================================ */
+
+/* Admin/Login */
+
+.loginPage {
+  background: linear-gradient(to bottom right, lightgreen, seagreen);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginCard {
+  background: rgba(255, 255, 255, 0.2); /* Add some opacity for the card */
+  backdrop-filter: blur(10px); /* Apply the frosted glass effect */
+  border-radius: 10px; /* Optional: Add rounded corners */
+  padding: 20px; /* Optional: Add padding to the card */
+  flex-direction: column; /* Change to column layout to align button below inputs */
+  /* align-items: center;  */
+}
+
+.frostedCircle {
+  position: absolute;
+  top: -57px; /* Adjust this value to control the circle's position */
+  left: 50%; /* Center the circle horizontally */
+  transform: translateX(-50%); /* Center the circle horizontally */
+  width: 228px; /* Adjust the circle's size */
+  height: 114px; /* Adjust the circle's size */
+  background: rgba(
+    255,
+    255,
+    255,
+    0.3
+  ); /* Frosted glass effect for the circle */
+  border-radius: 50%; /* Make it a circle */
+  backdrop-filter: blur(
+    40px
+  ); /* Increase blur for the circle */ /* Ensure the circle stays above the card */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginCard input {
+  background: rgba(64, 64, 64, 0.2); /* Dark grey glass effect */
+  color: white; /* Text color */
+  border: none; /* Remove input border */
+  border-radius: 5px; /* Apply rounded corners to the input */
+  padding: 10px; /* Adjust input padding as needed */
+}
+
+.loginCard input::placeholder {
+  color: white; /* Placeholder color */
+  opacity: 0.5; /* Lower opacity for placeholders */
+}
+
+.loginCard input:focus {
+  outline: none; /* Remove focus outline */
+}
+
+.signUpLink {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.loginCard button {
+  background: rgba(64, 64, 64, 0.2); /* Dark grey glass effect for the button */
+  color: white; /* Text color for the button */
+  border: none; /* Remove button border */
+  border-radius: 5px; /* Apply rounded corners to the button */
+  padding: 10px 20px; /* Adjust button padding as needed */
+  cursor: pointer; /* Add a pointer cursor on hover */
+  transition: background-color 0.3s, transform 0.2s; /* Smooth transition for background color and transform */
+}
+
+.loginCard button:hover {
+  background: rgba(64, 64, 64, 0.3); /* Darker glass effect on hover */
+  transform: scale(1.05); /* Slightly scale up the button on hover */
+}
+
+.loginCard button:focus {
+  outline: none; /* Remove focus outline */
+}
+
+.passwordInput {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.passwordInput input {
+  flex-grow: 1;
+}
+
+.passwordIcon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+/* Admin/Table-Links */
+.anchor {
+  color: black;
+}
+
+/* Admin/File-upload *?
+/* PhotoUpload.module.css */
+
+.photo-upload-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: 200px;
+  border: 2px dashed #ccc;
+  cursor: pointer;
+}
+
+.photo-upload-box {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.uploaded-photo {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.upload-text {
+  font-size: 18px;
+  color: #aaa;
+}
+
+.file-input {
+  display: none;
+}
