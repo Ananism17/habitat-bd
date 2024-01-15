@@ -87,7 +87,7 @@ const VideoGridComponent = () => {
               <Col md lg={9}>
                 <Row className="justify-content-center">
                   {albumList?.map((video) => (
-                    <Col md lg={6}>
+                    <Col md lg={6} className="mt-4">
                       <Card className="video-card-container">
                         <div
                           key={video.id}
@@ -100,6 +100,7 @@ const VideoGridComponent = () => {
                           />
                         </div>
                       </Card>
+                      <h5>{video.title}</h5>
                     </Col>
                   ))}
                 </Row>

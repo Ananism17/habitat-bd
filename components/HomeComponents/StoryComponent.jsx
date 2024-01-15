@@ -16,16 +16,16 @@ const StoryComponent = () => {
 
   //story-list
   useEffect(() => {
-    const apiUrl = BASE_URL + "api/v1/public/contents?type=story";
+    const apiUrl = BASE_URL + "api/v1/public/contents/featured?type=story";
 
     axios
       .get(apiUrl)
       .then((res) => {
         if (res.data.status) {
-          res.data.data.data?.map((item) => {
+          res.data.data?.map((item) => {
             item.url = `${BASE_URL}storage/contents/${item.cover_photo}`;
           });
-          setStoryList(res.data.data.data);
+          setStoryList(res.data.data);
         } else {
           console.log(res.data);
         }
@@ -36,7 +36,7 @@ const StoryComponent = () => {
   }, []);
 
   return (
-    <div style={{ padding: "10px" }}>
+    <div style={{ background: "#eaeaea", padding: "10px" }}>
       <Container>
         <Row className="justify-content-center">
           <Col xs lg="12" className="text-center mt-4">
@@ -44,9 +44,9 @@ const StoryComponent = () => {
           </Col>
         </Row>
         <Row className="justify-content-center mt-3">
-          <Col xs lg="8" className="text-center">
+          <Col xs lg="9" className="text-center">
             <p style={{ fontSize: "20px" }}>
-              Read about the stories of families and elderly who are empowered
+              Read about the stories of families who are empowered
               to build a better life for themselves with safe and decent
               housing.
             </p>
@@ -55,9 +55,9 @@ const StoryComponent = () => {
         <Row className="justify-content-center mt-4">
           <Col xs lg="12" className="text-center">
             <Row className="justify-content-center g-4">
-              {storyList.map((story, index) => (
-                <>
-                  {index < 3 && (
+              {storyList.map(
+                (story, index) =>
+                  index < 3 && (
                     <Col md lg="3" key={index}>
                       <Link
                         href={`/stories/${story.slug}`}
@@ -73,18 +73,17 @@ const StoryComponent = () => {
                             <Card.Title className="truncate-lines">
                               {story.title}
                             </Card.Title>
-                            <hr />
+                            {/* <hr />
                             <Card.Text className="text-start">
                               <AiOutlineEye style={{ fontSize: "20px" }} />{" "}
                               {story.count}
-                            </Card.Text>
+                            </Card.Text> */}
                           </Card.Body>
                         </Card>
                       </Link>
                     </Col>
-                  )}
-                </>
-              ))}
+                  )
+              )}
             </Row>
           </Col>
         </Row>

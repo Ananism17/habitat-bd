@@ -120,7 +120,7 @@ const AddSliderComponent = ({ token }) => {
       </Link>
       <h4 className="mt-2 mb-4">Add Slider Image</h4>
       <Row>
-        <Col md lg={6}>
+        <Col md lg={4}>
           <Form.Label className="mt-4">Slider Caption</Form.Label>
           <Form.Control
             type="text"

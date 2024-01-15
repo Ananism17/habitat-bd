@@ -157,7 +157,7 @@ const VideoListComponent = ({ token }) => {
                       {album.description}
                     </Link>
                   </td>
-                  <td>{album.status ? "Active" : "Inactive"}</td>
+                  <td>{album.status == "1" ? "Active" : "Inactive"}</td>
                   <td>
                     {moment(album.created_at).format("DD MMM YYYY - hh:mm A")}
                   </td>

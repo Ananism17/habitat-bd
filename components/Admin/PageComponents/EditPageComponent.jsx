@@ -48,7 +48,6 @@ const EditPageComponent = ({ id, token }) => {
           setName(res.data.data.name);
           setSerial(res.data.data.serial);
           setStatus(res.data.data.status);
-          set
           if (res.data.data.parent) {
             const temp = {
               label: res.data.data.parent.name,

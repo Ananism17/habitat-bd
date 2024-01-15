@@ -31,6 +31,7 @@ const ContentListComponent = ({ token }) => {
   const [loader, setLoader] = useState(true);
   const [contentList, setContentList] = useState(null);
   const [type, setType] = useState("");
+  const [category, setCategory] = useState("");
 
   //delete-modal
   const [deleteId, setDeleteId] = useState(null);
@@ -44,7 +45,14 @@ const ContentListComponent = ({ token }) => {
   //content-list
   useEffect(() => {
     setLoader(true);
-    const apiUrl = BASE_URL + "api/v1/contents?type=" + type + "&page=" + page;
+    const apiUrl =
+      BASE_URL +
+      "api/v1/contents?type=" +
+      type +
+      "&category=" +
+      category +
+      "&page=" +
+      page;
     axios
       .get(apiUrl, {
         headers: { Authorization: "Bearer " + token },
@@ -64,7 +72,7 @@ const ContentListComponent = ({ token }) => {
       .catch((error) => {
         console.log(error);
       });
-  }, [page, type]);
+  }, [page, type, category]);
 
   //delete-content
   const handleDelete = () => {
@@ -113,6 +121,8 @@ const ContentListComponent = ({ token }) => {
       });
   };
 
+  console.log(contentList);
+
   return (
     <>
       <Row className="mt-2 mb-4">
@@ -120,7 +130,7 @@ const ContentListComponent = ({ token }) => {
           <h4>Content List</h4>
         </Col>
         <Col md lg={6}>
-          <Link href={"/admin/contents//create"}>
+          <Link href={"/admin/contents/create"}>
             <Button variant="secondary" size="sm" className=" float-end">
               Create Content <IoIosArrowForward />
             </Button>
@@ -140,6 +150,23 @@ const ContentListComponent = ({ token }) => {
             <option value="news">News</option>
           </Form.Select>
         </Col>
+        {type == "story" && (
+          <Col md lg={3}>
+            <Form.Select
+              defaultValue={category}
+              onChange={(e) => {
+                setCategory(e.target.value);
+                setPage(1);
+              }}
+            >
+              <option value="">All</option>
+              <option value={1}>Homeowner Stories</option>
+              <option value={2}>Community Stories</option>
+              <option value={3}>Humans of Habitat</option>
+              <option value={4}>Supporter Stories</option>
+            </Form.Select>
+          </Col>
+        )}
       </Row>
 
       {loader ? (
@@ -154,7 +181,10 @@ const ContentListComponent = ({ token }) => {
                 <th>Title</th>
                 <th>Cover Photo</th>
                 <th>Type</th>
+                <th>Category</th>
+                <th>URL</th>
                 <th>Status</th>
+                <th>Featured</th>
                 <th>Created</th>
                 <th>Last Updated</th>
                 <th>Action</th>
@@ -178,8 +208,28 @@ const ContentListComponent = ({ token }) => {
                     {content.type[0].toUpperCase() + content.type.slice(1)}
                   </td>
                   <td>
-                    {content.status ? "Active" : "Inactive"}
+                    {content.type == "story" ? (
+                      <>
+                        {content.category == null && "Not Selected"}
+                        {content.category == 1 && "Homeowner Story"}
+                        {content.category == 2 && "Community Story"}
+                        {content.category == 3 && "Humans of Habitat"}
+                        {content.category == 4 && "Supporter Story"}
+                      </>
+                    ) : (
+                      "N/A"
+                    )}
                   </td>
+                  <td>{content.type == "news" ? content.url : "N/A"}</td>
+                  <td>{content.status == "1" ? "Active" : "Inactive"}</td>
+                  <td>
+                    {content.type == "story"
+                      ? content.is_featured == "1"
+                        ? "Yes"
+                        : "No"
+                      : "N/A"}
+                  </td>
+
                   <td>
                     {moment(content.created_at).format("DD MMM YYYY - hh:mm A")}
                   </td>
@@ -201,12 +251,17 @@ const ContentListComponent = ({ token }) => {
                         handleDelete();
                       }}
                     />
-                    <Link
-                      href={`/admin/contents/add-description/${content.id}`}
-                      style={{ color: "black" }}
-                    >
-                      <FaPlus className="ms-3" style={{ cursor: "pointer" }} />
-                    </Link>
+                    {content.type == "story" && (
+                      <Link
+                        href={`/admin/contents/add-description/${content.id}`}
+                        style={{ color: "black" }}
+                      >
+                        <FaPlus
+                          className="ms-3"
+                          style={{ cursor: "pointer" }}
+                        />
+                      </Link>
+                    )}
                   </td>
                 </tr>
               ))}

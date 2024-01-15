@@ -40,9 +40,9 @@ const SliderComponent = () => {
   };
 
   return (
-    <Container>
+    <Container className="mt-1">
       <Row className="justify-content-center">
-        <Col xs lg="12" className="text-center">
+        <Col xs lg="10" className="text-center">
           <Carousel activeIndex={index} onSelect={handleSelect}>
             {sliderImages?.map((slider, index) => (
               <Carousel.Item key={index}>
@@ -58,9 +58,10 @@ const SliderComponent = () => {
                   style={{
                     background: "rgba(40, 180, 211, 0.8)",
                     borderRadius: "10px",
+                    padding: "10px"
                   }}
                 >
-                  <h3>{slider.caption}</h3>
+                  <h4>{slider.caption}</h4>
                 </Carousel.Caption>
               </Carousel.Item>
             ))}

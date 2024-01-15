@@ -53,18 +53,18 @@ const DynamicBodyComponent = ({ slug, token, path }) => {
         <LoaderBox />
       ) : (
         <Container style={{ padding: "10px" }}>
-          <Row className="justify-content-center mt-3">
+          {/* <Row className="justify-content-center mt-3">
             <Col md lg={9} className="path-header">
               {path?.map((menu, index) => (
                 <small key={index}>{`${menu} / `}</small>
               ))}
               <small>{pageDetails?.name}</small>
             </Col>
-          </Row>
+          </Row> */}
 
           <Row className="justify-content-center mt-4">
             <Col md lg={9} className="header">
-              <h1>{pageDetails?.name}</h1>
+              <h3>{pageDetails?.name}</h3>
             </Col>
             {/* <hr /> */}
           </Row>

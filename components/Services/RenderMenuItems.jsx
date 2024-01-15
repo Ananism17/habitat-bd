@@ -33,18 +33,22 @@ const RenderMenuItems = ({
     dispatch(menuPath(path));
   };
 
+  // console.log(menuData, menuList);
+
   // Sort menuData based on serial integer attribute
   menuData.sort((a, b) => a.serial - b.serial);
 
   return menuData.map((item) => {
-    const hasChildren = menuList.some((child) => child.parent_id === item.id);
+    const hasChildren = menuList.some((child) => +child.parent_id === item.id);
+    // const hasChildren = item.children?.length != 0;
     const isTopLevelItem = !item.parent_id;
 
     // Create a new path array by adding the current item's name to the existing path
     const newPath = [...path, item.name];
 
     if (hasChildren) {
-      const children = menuList.filter((child) => child.parent_id === item.id);
+      const children = menuList.filter((child) => +child.parent_id === item.id);
+      
       return (
         <NavDropdown
           key={item.id}
@@ -54,7 +58,7 @@ const RenderMenuItems = ({
           onMouseLeave={handleMouseLeave}
           show={openDropdown === item.id}
           drop={isChild ? "end" : undefined}
-          className={isChild ? "" : "mt-lg-4 ms-lg-3 me-lg-3"}
+          className={isChild ? "" : "mt-lg-5 ms-lg-3 me-lg-3"}
         >
           <RenderMenuItems
             menuData={children}

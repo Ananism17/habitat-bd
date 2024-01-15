@@ -17,6 +17,7 @@ import { PaginationControl } from "react-bootstrap-pagination-control";
 const StoryListComponent = () => {
   //helper-variables
   const [loader, setLoader] = useState(true);
+  const [category, setCategory] = useState("");
   const [storyList, setStoryList] = useState([]);
 
   //pagination
@@ -28,11 +29,19 @@ const StoryListComponent = () => {
   useEffect(() => {
     setLoader(true);
     window.scrollTo({ top: 0, behavior: "smooth" });
-    const apiUrl = BASE_URL + "api/v1/public/contents?type=story&page=" + page;
+    const apiUrl =
+      BASE_URL +
+      "api/v1/public/contents?type=story&category=" +
+      category +
+      "&page=" +
+      page;
+
+    console.log(apiUrl);
 
     axios
       .get(apiUrl)
       .then((res) => {
+        console.log(res.data);
         if (res.data.status) {
           setLoader(false);
           res.data.data.data?.map((item) => {
@@ -48,46 +57,116 @@ const StoryListComponent = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, [page]);
+  }, [page, category]);
 
   return (
     <>
+      <Container style={{ padding: "10px" }}>
+        <Row className="justify-content-center mt-4">
+          <Col md lg={9} className="header">
+            <h3>Stories</h3>
+          </Col>
+        </Row>
+        <Row className="justify-content-center mt-3">
+          <Col md lg={9} className="path-header">
+            <Row className="justify-content-center">
+              <Col md className="text-center">
+                <small
+                  className={
+                    category == "" ? "story-category-active" : "story-category"
+                  }
+                  onClick={(e) => {
+                    setCategory("");
+                    setPage(1);
+                  }}
+                >
+                  All Stories
+                </small>
+              </Col>
+              <Col md className="text-center">
+                <small
+                  className={
+                    category == 1 ? "story-category-active" : "story-category"
+                  }
+                  onClick={(e) => {
+                    setCategory(1);
+                    setPage(1);
+                  }}
+                >
+                  Homeowner Stories
+                </small>
+              </Col>
+              <Col md className="text-center">
+                <small
+                  className={
+                    category == 2 ? "story-category-active" : "story-category"
+                  }
+                  onClick={(e) => {
+                    setCategory(2);
+                    setPage(1);
+                  }}
+                >
+                  Community Stories
+                </small>
+              </Col>
+              <Col md className="text-center">
+                <small
+                  className={
+                    category == 3 ? "story-category-active" : "story-category"
+                  }
+                  onClick={(e) => {
+                    setCategory(3);
+                    setPage(1);
+                  }}
+                >
+                  Humans of Habitat
+                </small>
+              </Col>
+              <Col md className="text-center">
+                <small
+                  className={
+                    category == 4 ? "story-category-active" : "story-category"
+                  }
+                  onClick={(e) => {
+                    setCategory(4);
+                    setPage(1);
+                  }}
+                >
+                  Supporter Stories
+                </small>
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+      </Container>
       {loader ? (
         <LoaderBox />
       ) : (
         <>
           <Container style={{ padding: "10px" }}>
-            <Row className="justify-content-center mt-3">
-              <Col md lg={9} className="path-header">
-                <small>News & Stories / Stories</small>
-              </Col>
-            </Row>
-            <Row className="justify-content-center mt-4">
-              <Col md lg={9} className="header">
-                <h1>Stories</h1>
-              </Col>
-            </Row>
             <Row className="justify-content-center mt-4">
               <Col md lg={9} className="mb-3">
                 <Row>
                   {storyList[0] && (
                     <Col md lg={12} className="mb-4">
-                      <Card className="custom-card">
-                        <Card.Img src={storyList[0]?.url} />
-                        <div className="card-overlay">
-                          <Card.Title className="card-title">
-                            {storyList[0]?.title}
-                          </Card.Title>
-                          <Card.Text
-                            style={{ fontSize: 12, cursor: "pointer" }}
-                          ><Link
-                          href={`/stories/${storyList[0]?.slug}`}
-                          style={{ color: "white", textDecoration: "none" }}
-                        >
-                          {`Read The Story →`}
-                        </Link></Card.Text>
-                        </div>
-                      </Card>
+                      <Link
+                        href={`/stories/${storyList[0]?.slug}`}
+                        style={{ color: "white", textDecoration: "none" }}
+                      >
+                        <Card className="custom-card">
+                          <Card.Img src={storyList[0]?.url} />
+                          <div className="card-overlay">
+                            <Card.Title className="card-title">
+                              {storyList[0]?.title}
+                            </Card.Title>
+                            <Card.Text
+                              style={{ fontSize: 12, cursor: "pointer" }}
+                            >
+                              {`Read The Story →`}
+                            </Card.Text>
+                          </div>
+                        </Card>
+                      </Link>
                     </Col>
                   )}
                 </Row>
@@ -103,12 +182,14 @@ const StoryListComponent = () => {
                           </Card.Title>
                           <Card.Text
                             style={{ fontSize: 12, cursor: "pointer" }}
-                          ><Link
-                          href={`/stories/${storyList[1]?.slug}`}
-                          style={{ color: "white", textDecoration: "none" }}
-                        >
-                          {`Read The Story →`}
-                        </Link></Card.Text>
+                          >
+                            <Link
+                              href={`/stories/${storyList[1]?.slug}`}
+                              style={{ color: "white", textDecoration: "none" }}
+                            >
+                              {`Read The Story →`}
+                            </Link>
+                          </Card.Text>
                         </div>
                       </Card>
                     </Col>
@@ -123,12 +204,14 @@ const StoryListComponent = () => {
                           </Card.Title>
                           <Card.Text
                             style={{ fontSize: 12, cursor: "pointer" }}
-                          ><Link
-                          href={`/stories/${storyList[2]?.slug}`}
-                          style={{ color: "white", textDecoration: "none" }}
-                        >
-                          {`Read The Story →`}
-                        </Link></Card.Text>
+                          >
+                            <Link
+                              href={`/stories/${storyList[2]?.slug}`}
+                              style={{ color: "white", textDecoration: "none" }}
+                            >
+                              {`Read The Story →`}
+                            </Link>
+                          </Card.Text>
                         </div>
                       </Card>
                     </Col>
@@ -146,12 +229,14 @@ const StoryListComponent = () => {
                           </Card.Title>
                           <Card.Text
                             style={{ fontSize: 12, cursor: "pointer" }}
-                          ><Link
-                          href={`/stories/${storyList[3]?.slug}`}
-                          style={{ color: "white", textDecoration: "none" }}
-                        >
-                          {`Read The Story →`}
-                        </Link></Card.Text>
+                          >
+                            <Link
+                              href={`/stories/${storyList[3]?.slug}`}
+                              style={{ color: "white", textDecoration: "none" }}
+                            >
+                              {`Read The Story →`}
+                            </Link>
+                          </Card.Text>
                         </div>
                       </Card>
                     </Col>

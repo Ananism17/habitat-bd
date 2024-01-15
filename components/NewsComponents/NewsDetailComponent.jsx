@@ -51,10 +51,10 @@ const NewsDetailComponent = ({ slug }) => {
       ) : (
         <>
           <Container style={{ padding: "10px" }}>
-            <Row className="justify-content-center mt-3">
+            {/* <Row className="justify-content-center mt-3">
               <Col md lg={9} className="path-header">
                 <small>
-                  News & Stories /
+                  Publications /
                   <Link
                     style={{ color: "white", textDecoration: "none" }}
                     href="/news"
@@ -64,10 +64,10 @@ const NewsDetailComponent = ({ slug }) => {
                   / {newsDetails?.title}
                 </small>
               </Col>
-            </Row>
+            </Row> */}
             <Row className="justify-content-center mt-4">
               <Col md lg={9} className="header">
-                <h1>{newsDetails?.title}</h1>
+                <h3>{newsDetails?.title}</h3>
               </Col>
             </Row>
 

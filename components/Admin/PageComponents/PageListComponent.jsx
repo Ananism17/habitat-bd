@@ -131,7 +131,7 @@ const PageListComponent = ({ token }) => {
                   <td>{page.name}</td>
                   <td>{page.slug}</td>
                   <td>{page.serial}</td>
-                  <td>{page.status? "Active" : "Inactive"}</td>
+                  <td>{page.status == "1" ? "Active" : "Inactive"}</td>
                   <td>{page.parent?.name}</td>
                   
                   <td>

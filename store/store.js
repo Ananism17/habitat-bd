@@ -4,6 +4,7 @@ import { persistReducer, persistStore } from "redux-persist";
 
 import authReducer from "./reducers/authReducer";
 import menuReducer from "./reducers/menuReducer";
+import popupReducer from "./reducers/popupReducer";
 
 import createWebStorage from "redux-persist/lib/storage/createWebStorage";
 
@@ -25,18 +26,23 @@ const storage =
   typeof window !== "undefined"
     ? createWebStorage("local")
     : createNoopStorage();
-const persistConfig = {
-  key: "root",
-  storage,
-};
-
+    const persistConfig = {
+      key: "auth",
+      storage,
+    };
+    const persistConfigMenu = {
+      key: "menu",
+      storage,
+    };
+    
 const persistedReducer = persistReducer(persistConfig, authReducer);
-const persistedMenuReducer = persistReducer(persistConfig, menuReducer);
+const persistedMenuReducer = persistReducer(persistConfigMenu, menuReducer);
 
 export const store = configureStore({
   reducer: {
     auth: persistedReducer,
-    menu: persistedMenuReducer
+    menu: persistedMenuReducer,
+    popup: popupReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

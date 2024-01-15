@@ -25,6 +25,9 @@ const CreateContentComponent = ({ token }) => {
   const [title, setTitle] = useState(null);
   const [type, setType] = useState("story");
   const [status, setStatus] = useState(1);
+  const [is_featured, setIsFeatured] = useState(0);
+  const [category, setCategory] = useState(1);
+  const [url, setUrl] = useState("");
   const [cover_photo, setCoverPhoto] = useState("");
 
   //references
@@ -67,7 +70,10 @@ const CreateContentComponent = ({ token }) => {
       title,
       type,
       status,
+      is_featured,
+      category,
       cover_photo,
+      url,
     };
     const apiUrl = BASE_URL + "api/v1/contents";
     const config = {
@@ -139,6 +145,35 @@ const CreateContentComponent = ({ token }) => {
             <option value="story">Story</option>
             <option value="news">News</option>
           </Form.Select>
+          {type == "story" && (
+            <>
+              <Form.Label className="mt-4">Category</Form.Label>
+              <Form.Select
+                defaultValue={category}
+                onChange={(e) => {
+                  setCategory(e.target.value);
+                }}
+              >
+                <option value={1}>Homeowner Story</option>
+                <option value={2}>Community Story</option>
+                <option value={3}>Human of Habitat</option>
+                <option value={4}>Supporter Story</option>
+              </Form.Select>
+            </>
+          )}
+          {type == "news" && (
+            <>
+              <Form.Label className="mt-4">News URL</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="URL"
+                value={url || ""}
+                onChange={(e) => {
+                  setUrl(e.target.value);
+                }}
+              />
+            </>
+          )}
           <Form.Label className="mt-4">Status</Form.Label>
           <Form.Select
             value={status}
@@ -149,6 +184,20 @@ const CreateContentComponent = ({ token }) => {
             <option value={1}>Active</option>
             <option value={0}>Inactive</option>
           </Form.Select>
+          {type == "story" && (
+            <>
+              <Form.Label className="mt-4">Featured</Form.Label>
+              <Form.Select
+                value={is_featured}
+                onChange={(e) => {
+                  setIsFeatured(e.target.value);
+                }}
+              >
+                <option value={1}>Yes</option>
+                <option value={0}>No</option>
+              </Form.Select>
+            </>
+          )}
           <Form.Label className="mt-5">Add Cover Photo</Form.Label>
           <Button
             variant="info"

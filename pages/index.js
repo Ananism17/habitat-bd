@@ -1,6 +1,6 @@
 import DonationComponent from "../components/HomeComponents/DonationComponent";
 import ImpactComponent from "../components/HomeComponents/ImpactComponent";
-import InstagramComponent from "../components/HomeComponents/InstagramComponent";
+// import InstagramComponent from "../components/HomeComponents/InstagramComponent";
 import NewsComponent from "../components/HomeComponents/NewsComponent";
 import StoryComponent from "../components/HomeComponents/StoryComponent";
 import SliderComponent from "../components/HomeComponents/SliderComponent";
@@ -12,10 +12,10 @@ const Home = () => {
     <>
       <SliderComponent />
       <WorkComponent />
-      <ImpactComponent />
+      {/* <ImpactComponent /> */}
       <StoryComponent />
-      <DonationComponent />
-      <VolunteerComponent />
+      {/* <DonationComponent /> */}
+      {/* <VolunteerComponent /> */}
       <NewsComponent />
       {/* <InstagramComponent /> */}
     </>

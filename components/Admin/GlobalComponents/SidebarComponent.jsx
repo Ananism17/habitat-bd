@@ -1,6 +1,5 @@
 //next
 import Link from "next/link";
-import Image from "next/image";
 
 //pro-sidebar
 import {
@@ -20,6 +19,11 @@ import { BiPhotoAlbum } from "react-icons/bi";
 import { CgWebsite } from "react-icons/cg";
 import { TfiLayoutSlider } from "react-icons/tfi";
 import { GiNewspaper } from "react-icons/gi";
+import { MdOutlineWorkspaces } from "react-icons/md";
+import { IoPeople } from "react-icons/io5";
+import { FaHandsHelping } from "react-icons/fa";
+import { BiSolidReport } from "react-icons/bi";
+import { GiAnvilImpact } from "react-icons/gi";
 
 const SidebarComponent = ({
   collapsed,
@@ -52,11 +56,11 @@ const SidebarComponent = ({
                   padding: "9px",
                 }}
               >
-                <Image
+                <img
                   src="/images/logo.png"
-                  width={160}
-                  height={80}
-                  alt="logo"
+                  width="160"
+                  height="80"
+                  alt="habitat_logo"
                 />
               </div>
             </MenuItem>
@@ -152,8 +156,81 @@ const SidebarComponent = ({
               <Link href="/admin/sliders" />
             </MenuItem>
           </SubMenu>
+
+          {/* Services */}
+          <SubMenu
+            title={"Services"}
+            icon={<MdOutlineWorkspaces style={{ fontSize: "20" }} />}
+          >
+            <MenuItem>
+              Add Service
+              <Link href="/admin/services/create" />
+            </MenuItem>
+            <MenuItem>
+              Service List
+              <Link href="/admin/services" />
+            </MenuItem>
+          </SubMenu>
+
+          {/* Impacts */}
+          <SubMenu
+            title={"Impacts"}
+            icon={<GiAnvilImpact style={{ fontSize: "20" }} />}
+          >
+            <MenuItem>
+              Add Impact
+              <Link href="/admin/impacts/create" />
+            </MenuItem>
+            <MenuItem>
+              Impact List
+              <Link href="/admin/impacts" />
+            </MenuItem>
+          </SubMenu>
+
+          {/* Reports */}
+          <SubMenu
+            title={"Reports"}
+            icon={<BiSolidReport style={{ fontSize: "20" }} />}
+          >
+            <MenuItem>
+              Create Report
+              <Link href="/admin/reports/create" />
+            </MenuItem>
+            <MenuItem>
+              Report List
+              <Link href="/admin/reports" />
+            </MenuItem>
+          </SubMenu>
+
+          {/* Pledges */}
+          <SubMenu
+            title={"Pledges"}
+            icon={<FaHandsHelping style={{ fontSize: "20" }} />}
+          >
+            <MenuItem>
+              Create Pledge
+              <Link href="/admin/pledges/create" />
+            </MenuItem>
+            <MenuItem>
+              Pledge List
+              <Link href="/admin/pledges" />
+            </MenuItem>
+          </SubMenu>
+
+          {/* Subscribers */}
+          <SubMenu
+            title={"Subscribers"}
+            icon={<IoPeople style={{ fontSize: "20" }} />}
+          >
+            <MenuItem>
+              Subscriber List
+              <Link href="/admin/subscribers" />
+            </MenuItem>
+          </SubMenu>
         </Menu>
       </SidebarContent>
+
+
       {/* Footer */}
       <SidebarFooter style={{ textAlign: "center" }}>
         <div className="sidebar-btn-wrapper" style={{ padding: "16px" }}>

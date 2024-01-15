@@ -19,8 +19,6 @@ import { toast } from "react-toastify";
 
 //icons
 import { IoIosArrowBack } from "react-icons/io";
-import { MdDelete } from "react-icons/md";
-import { RxCross2 } from "react-icons/rx";
 
 const EditContentComponent = ({ id, token }) => {
   //helper-variables
@@ -71,6 +69,15 @@ const EditContentComponent = ({ id, token }) => {
   const updateStatus = (newStatus) => {
     setContentDetails({ ...contentDetails, status: newStatus });
   };
+  const updateFeatured = (newIsFeatured) => {
+    setContentDetails({ ...contentDetails, is_featured: newIsFeatured });
+  };
+  const updateCategory = (newCategory) => {
+    setContentDetails({ ...contentDetails, category: newCategory });
+  };
+  const updateUrl = (newUrl) => {
+    setContentDetails({ ...contentDetails, url: newUrl });
+  };
 
   //update-cover-photo
   const onChange = async (e) => {
@@ -113,6 +120,9 @@ const EditContentComponent = ({ id, token }) => {
       title: contentDetails.title,
       type: contentDetails.type,
       status: contentDetails.status,
+      is_featured: contentDetails.is_featured,
+      category: contentDetails.category,
+      url: contentDetails.url,
       cover_photo,
     };
 
@@ -179,6 +189,23 @@ const EditContentComponent = ({ id, token }) => {
                 <option value="story">Story</option>
                 <option value="news">News</option>
               </Form.Select>
+              {contentDetails.type == "story" && (
+                <>
+                  <Form.Label className="mt-4">Category</Form.Label>
+                  <Form.Select
+                    defaultValue={contentDetails.category}
+                    onChange={(e) => {
+                      updateCategory(e.target.value);
+                    }}
+                  >
+                    <option value={null}>Select a Story Category</option>
+                    <option value={1}>Homeowner Story</option>
+                    <option value={2}>Community Story</option>
+                    <option value={3}>Human of Habitat</option>
+                    <option value={4}>Supporter Story</option>
+                  </Form.Select>
+                </>
+              )}
               <Form.Label className="mt-4">Status</Form.Label>
               <Form.Select
                 value={contentDetails.status}
@@ -189,6 +216,33 @@ const EditContentComponent = ({ id, token }) => {
                 <option value={1}>Active</option>
                 <option value={0}>Inactive</option>
               </Form.Select>
+              {contentDetails.type == "story" && (
+                <>
+                  <Form.Label className="mt-4">Featured</Form.Label>
+                  <Form.Select
+                    value={contentDetails.is_featured}
+                    onChange={(e) => {
+                      updateFeatured(e.target.value);
+                    }}
+                  >
+                    <option value={1}>Yes</option>
+                    <option value={0}>No</option>
+                  </Form.Select>
+                </>
+              )}
+              {contentDetails.type == "news" && (
+                <>
+                  <Form.Label className="mt-4">News URL</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="URL"
+                    value={contentDetails.url || ""}
+                    onChange={(e) => {
+                      updateUrl(e.target.value);
+                    }}
+                  />
+                </>
+              )}
               <Form.Label className="mt-4">Cover Photo</Form.Label>
               <Button
                 variant="info"

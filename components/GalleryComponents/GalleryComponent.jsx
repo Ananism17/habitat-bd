@@ -91,7 +91,7 @@ const GalleryComponent = ({ slug }) => {
         <LoaderBox />
       ) : (
         <Container style={{ padding: "10px" }}>
-          <Row className="justify-content-center mt-3">
+          {/* <Row className="justify-content-center mt-3">
             <Col md lg={9} className="path-header">
               <small>
                 <Link
@@ -103,10 +103,10 @@ const GalleryComponent = ({ slug }) => {
                 / {albumDetails?.title}
               </small>
             </Col>
-          </Row>
+          </Row> */}
           <Row className="justify-content-center mt-4">
             <Col md lg={9} className="header">
-              <h1>{albumDetails?.title}</h1>
+              <h3>{albumDetails?.title}</h3>
             </Col>
           </Row>
 

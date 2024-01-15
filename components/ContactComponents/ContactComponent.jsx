@@ -65,14 +65,14 @@ const ContactComponent = () => {
   return (
     <>
       <Container style={{ padding: "10px" }}>
-        <Row className="justify-content-center mt-3">
+        {/* <Row className="justify-content-center mt-3">
           <Col md lg={9} className="path-header">
             <small>Contact</small>
           </Col>
-        </Row>
+        </Row> */}
         <Row className="justify-content-center mt-4">
           <Col md lg={9} className="header">
-            <h1>Contact Us</h1>
+            <h3>Contact Us</h3>
           </Col>
         </Row>
         <Row className="justify-content-center mt-4 mb-4">

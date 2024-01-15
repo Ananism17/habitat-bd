@@ -36,7 +36,7 @@ const NewsListComponent = () => {
         if (res.data.status) {
           setLoader(false);
           res.data.data.data?.map((item) => {
-            item.url = `${BASE_URL}storage/contents/${item.cover_photo}`;
+            item.image_url = `${BASE_URL}storage/contents/${item.cover_photo}`;
           });
           setNewsList(res.data.data.data);
           setTotal(res.data.data.total);
@@ -57,14 +57,14 @@ const NewsListComponent = () => {
       ) : (
         <>
           <Container style={{ padding: "10px" }}>
-            <Row className="justify-content-center mt-3">
+            {/* <Row className="justify-content-center mt-3">
               <Col md lg={9} className="path-header">
-                <small>News & Stories / News</small>
+                <small>Publications / News</small>
               </Col>
-            </Row>
+            </Row> */}
             <Row className="justify-content-center mt-4">
               <Col md lg={9} className="header">
-                <h1>News</h1>
+                <h3>News</h3>
               </Col>
             </Row>
             <Row className="justify-content-center mt-4">
@@ -82,17 +82,18 @@ const NewsListComponent = () => {
                         <div className="horizontal-card-content">
                           <Card.Body>
                             <Card.Title>{news.title}</Card.Title>
-                            <Button variant="dark" className="mt-5">
-                              <Link
-                                href={`/news/${news.slug}`}
-                                style={{
-                                  color: "white",
-                                  textDecoration: "none",
-                                }}
-                              >
+                            <Link
+                              href={`${news.url}`}
+                              style={{
+                                color: "white",
+                                textDecoration: "none",
+                              }}
+                              target="_blank"
+                            >
+                              <Button variant="dark" className="mt-5">
                                 Read More →
-                              </Link>
-                            </Button>
+                              </Button>
+                            </Link>
                           </Card.Body>
                         </div>
                       </Card>

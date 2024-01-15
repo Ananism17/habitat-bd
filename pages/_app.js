@@ -7,10 +7,6 @@ import "../styles/globals.css";
 import "../styles/loader.css";
 import "../styles/AdminLayout.scss";
 
-//react-toast
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-
 //layout
 import Layout from "../components/Layouts/Layout";
 import AdminLayout from "../components/Layouts/AdminLayout";
@@ -32,21 +28,18 @@ export default function App({ Component, pageProps }) {
         {isAdminPath ? (
           <>
             <AdminLayout>
-              <ToastContainer />
+              
               <Component {...pageProps} />
             </AdminLayout>
           </>
         ) : (
           <>
             <Layout>
-              <ToastContainer />
               <Component {...pageProps} />
             </Layout>
           </>
         )}
       </PersistGate>
     </Provider>
-
-    
   );
 }

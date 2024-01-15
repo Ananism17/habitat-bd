@@ -15,14 +15,14 @@ const HeaderComponent = () => {
   return (
     <>
       <Container style={{ padding: "10px" }}>
-        <Row className="justify-content-center mt-3">
+        {/* <Row className="justify-content-center mt-3">
           <Col md lg={9} className="path-header">
             <small>Gallery</small>
           </Col>
-        </Row>
+        </Row> */}
         <Row className="justify-content-center mt-4">
             <Col md lg={9} className="header">
-              <h1>Gallery</h1>
+              <h3>Gallery</h3>
             </Col>
           </Row>
         <Row className="justify-content-center mt-5">

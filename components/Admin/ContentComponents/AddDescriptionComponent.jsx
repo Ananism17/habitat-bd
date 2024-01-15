@@ -11,12 +11,9 @@ import axios from "axios";
 import { BASE_URL } from "../../../base";
 
 //react-bootstraps
-import { Row, Col, Card, Container, Spinner } from "react-bootstrap";
+import { Row, Col, Container, Spinner } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-
-//react-select
-import Select from "react-select";
 
 //react-toast
 import { toast } from "react-toastify";

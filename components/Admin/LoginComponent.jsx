@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 
 //react-bootstrap
@@ -20,9 +19,8 @@ const LoginComponent = () => {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
 
-   // REDUX
-   const dispatch = useDispatch(auth(email, password));
-   
+  // REDUX
+  const dispatch = useDispatch(auth(email, password));
 
   //boolean
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -54,11 +52,11 @@ const LoginComponent = () => {
             <Col md={6}>
               <Card className="loginCard">
                 <div className="frostedCircle">
-                  <Image
+                  <img
                     src="/images/logo.png"
-                    width={160}
-                    height={80}
-                    alt="Picture of the author"
+                    width="160"
+                    height="80"
+                    alt="habitat_logo"
                   />
                 </div>
                 <Card.Body>
@@ -70,7 +68,9 @@ const LoginComponent = () => {
                         type="email"
                         placeholder="Enter email"
                         value={email || ""}
-                        onChange={(e) => {setEmail(e.target.value)}}
+                        onChange={(e) => {
+                          setEmail(e.target.value);
+                        }}
                       />
                     </Form.Group>
 
@@ -81,7 +81,9 @@ const LoginComponent = () => {
                           type={passwordVisible ? "text" : "password"}
                           placeholder="Password"
                           value={password || ""}
-                          onChange={(e) => {setPassword(e.target.value)}}
+                          onChange={(e) => {
+                            setPassword(e.target.value);
+                          }}
                         />
                         <span
                           className="passwordIcon"

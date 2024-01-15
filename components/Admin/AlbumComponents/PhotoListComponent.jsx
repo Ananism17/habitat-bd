@@ -111,8 +111,6 @@ const PhotoListComponent = ({ token }) => {
       });
   };
 
-  console.log(page);
-
   return (
     <>
       <Row className="mt-2 mb-4">
@@ -160,7 +158,7 @@ const PhotoListComponent = ({ token }) => {
                       />
                     )}
                   </td>
-                  <td>{album.status ? "Active" : "Inactive"}</td>
+                  <td>{album.status == "1" ? "Active" : "Inactive"}</td>
                   <td>{album.slug}</td>
                   <td>
                     {moment(album.created_at).format("DD MMM YYYY - hh:mm A")}

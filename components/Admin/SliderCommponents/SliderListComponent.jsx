@@ -149,7 +149,7 @@ const SliderListComponent = ({ token }) => {
                       />
                     )}
                   </td>
-                  <td>{slider.status ? "Active" : "Inactive"}</td>
+                  <td>{slider.status == "1" ? "Active" : "Inactive"}</td>
                   <td>{slider.serial}</td>
                   <td>
                     {moment(slider.created_at).format("DD MMM YYYY - hh:mm A")}

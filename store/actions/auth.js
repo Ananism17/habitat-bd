@@ -3,6 +3,9 @@ import * as actionTypes from "./actionTypes";
 import Router from "next/router";
 import { BASE_URL } from "../../base";
 
+//react-toast
+import { toast } from "react-toastify";
+
 
 export const authLogin = (token, user) => {
   Router.push({
@@ -43,6 +46,10 @@ export const auth = (email, password) => {
 
         } else {
           console.log(response.data);
+          toast.error(response.data.message, {
+            position: "top-right",
+            theme: "colored",
+          });
         }
       })
       .catch((err) => {
