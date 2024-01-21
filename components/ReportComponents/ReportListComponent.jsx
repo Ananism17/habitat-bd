@@ -17,7 +17,13 @@ import { PaginationControl } from "react-bootstrap-pagination-control";
 //icons
 import { IoMdClose } from "react-icons/io";
 import { BiDownload } from "react-icons/bi";
-import PdfViewer from "../Services/PdfViewer";
+
+import dynamic from 'next/dynamic';
+
+// Use dynamic import with ssr option set to false
+const PdfViewer = dynamic(() => import('../Services/PdfViewer'), {
+  ssr: false,
+});
 
 
 const ReportListComponent = () => {

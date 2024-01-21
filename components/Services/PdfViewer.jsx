@@ -1,7 +1,5 @@
 import React from "react";
-import { pdfjs, Document, Page } from "react-pdf";
-
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
+import { Document, Page } from "react-pdf";
 
 const PdfViewer = ({ url }) => {
   return (

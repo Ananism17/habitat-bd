@@ -16,6 +16,11 @@ import { Provider } from "react-redux";
 import { persistor, store } from "../store/store";
 import { PersistGate } from "redux-persist/integration/react";
 
+//pdf-viewer
+import { pdfjs } from "react-pdf";
+
+pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
+
 export default function App({ Component, pageProps }) {
   //Admin routes
   const router = useRouter();
