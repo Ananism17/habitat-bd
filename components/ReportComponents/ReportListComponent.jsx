@@ -17,6 +17,7 @@ import { PaginationControl } from "react-bootstrap-pagination-control";
 //icons
 import { IoMdClose } from "react-icons/io";
 import { BiDownload } from "react-icons/bi";
+import PdfViewer from "../Services/PdfViewer";
 
 
 const ReportListComponent = () => {
@@ -104,8 +105,11 @@ const ReportListComponent = () => {
                     {reportList?.map((report, index) => (
                       <tr key={index}>
                         <td>{report.name}</td>
-                        <td>
+                        {/* <td>
                           <iframe src={report.file_url} width={500} />
+                        </td> */}
+                        <td>
+                          <PdfViewer url={report.file_url} />
                         </td>
                         <td>
                           <Button
